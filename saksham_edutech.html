@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saksham Edutech Pvt. Ltd. | Education Technology Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #1e40af;
+      --blue-dark: #1e3a8a;
+      --blue-light: #eff6ff;
+      --teal: #0d9488;
+      --teal-light: #f0fdfa;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --bg: #f9fafb;
+      --green: #16a34a;
+      --orange: #ea580c;
+      --orange-light: #fff7ed;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      display: flex; align-items: center; gap: 0.55rem;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .nav-logo span.badge {
+      background: var(--teal);
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.15rem 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+    .nav-gst {
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-weight: 500;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.3rem 0.7rem;
+    }
+
+    .btn-call {
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-call:hover { background: var(--blue-dark); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 4rem 5% 3.5rem;
+      max-width: 800px;
+    }
+
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.3rem; }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--orange-light);
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.28rem 0.85rem;
+      border-radius: 20px;
+    }
+    .hero-tag::before { content: '◆'; font-size: 0.48rem; }
+
+    .gst-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #f0fdf4;
+      color: var(--green);
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid #bbf7d0;
+    }
+    .gst-badge::before { content: '✓'; font-size: 0.7rem; }
+
+    #hero h1 {
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.1rem;
+    }
+    #hero h1 .highlight {
+      color: var(--blue);
+    }
+
+    #hero p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.65rem 1.4rem;
+      border-radius: 7px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 0.65rem 1.4rem;
+      border-radius: 7px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--blue);
+      padding: 0.9rem 5%;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-size: 0.77rem; font-weight: 600; color: rgba(255,255,255,0.75);
+    }
+    .trust-item span { color: #6ee7b7; font-size: 0.85rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 3.5rem 5%; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.55rem, 3vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 480px;
+      margin-bottom: 2.2rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.7rem 1.5rem;
+      transition: box-shadow 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .service-card:hover { box-shadow: 0 6px 24px rgba(30,64,175,0.08); transform: translateY(-2px); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .service-card p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-left h2 {
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .about-left > p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
+    }
+
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 0.55rem;
+      font-size: 0.86rem; color: var(--text);
+    }
+
+    .check-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Biz Card */
+    .biz-card {
+      background: linear-gradient(145deg, var(--blue), #1e3a8a);
+      border-radius: 14px;
+      padding: 2rem;
+      color: var(--white);
+    }
+
+    .biz-card-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .biz-row { margin-bottom: 1.1rem; }
+    .biz-row:last-child { margin-bottom: 0; }
+
+    .biz-key {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 0.22rem;
+    }
+
+    .biz-val { font-size: 0.91rem; font-weight: 600; }
+
+    .biz-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.12rem 0.6rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── GST SECTION ── */
+    #gst { background: var(--white); }
+
+    .gst-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      max-width: 560px;
+    }
+    .gst-card h4 {
+      font-size: 0.88rem; font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .gst-card h4::before {
+      content: '🏛️';
+    }
+    .gst-row {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .gst-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .gst-key {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--muted);
+      min-width: 160px;
+      flex-shrink: 0;
+    }
+    .gst-val {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .gst-num {
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: 0.18rem 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── DIRECTORS ── */
+    #directors { background: var(--bg); }
+
+    .directors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      max-width: 600px;
+    }
+
+    .director-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: box-shadow 0.2s;
+    }
+    .director-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+    .director-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .director-name { font-size: 0.93rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .director-role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .director-state { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+
+    .contact-lead {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1.6rem; }
+
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+
+    .contact-icon-wrap {
+      width: 42px; height: 42px;
+      background: var(--blue-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item-val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 2.8rem 5% 1.4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .footer-brand-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      max-width: 240px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul li a {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+
+    .footer-contact-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-contact-list p { font-size: 0.8rem; line-height: 1.5; }
+
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.6rem;
+    }
+
+    .footer-bottom p { font-size: 0.76rem; color: #64748b; }
+
+    .footer-bottom-links { display: flex; gap: 1.1rem; list-style: none; }
+    .footer-bottom-links a {
+      font-size: 0.76rem;
+      color: #64748b;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: #fff; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: var(--border); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .trust-bar { gap: 1rem; }
+      .nav-gst { display: none; }
+    }
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      #hero { padding: 2rem 5%; }
+      .services-grid { grid-template-columns: 1fr; }
+      .directors-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">📚</div>
+      Saksham Edutech
+      <span class="badge">Pvt. Ltd.</span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-gst">GSTIN: 09ABQCS3439K1ZM</span>
+      <a href="#contact" class="btn-call">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tags">
+      <span class="hero-tag">Education Technology</span>
+      <span class="gst-badge">GST Registered · 09ABQCS3439K1ZM</span>
+    </div>
+    <h1>Empowering Learners<br>with <span class="highlight">Smart EdTech</span><br>Solutions</h1>
+    <p>Saksham Edutech Private Limited is a GST-registered Private Limited Company based in Ghaziabad, Uttar Pradesh. We are committed to delivering technology-driven education solutions that transform how students learn and grow.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span>✓</span> GST Registered · Regular</div>
+    <div class="trust-item"><span>✓</span> Private Limited Company</div>
+    <div class="trust-item"><span>✓</span> Ghaziabad, Uttar Pradesh</div>
+    <div class="trust-item"><span>✓</span> Registered: 15 July 2025</div>
+    <div class="trust-item"><span>✓</span> GSTIN: 09ABQCS3439K1ZM</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Comprehensive education technology solutions designed to enhance learning outcomes and digital access.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🎓</div>
+        <h3>Online Learning Platforms</h3>
+        <p>Custom-built digital learning environments with interactive content, live classes, and progress tracking for students.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📱</div>
+        <h3>EdTech App Development</h3>
+        <p>Mobile and web-based educational apps that make quality education accessible anytime, anywhere.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <h3>Learning Management Systems</h3>
+        <p>Robust LMS solutions for schools, colleges, and coaching institutes to manage courses, assignments, and performance.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤝</div>
+        <h3>Training & Development</h3>
+        <p>Corporate and academic training programs backed by technology tools to upskill teams and students efficiently.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📝</div>
+        <h3>Content Creation</h3>
+        <p>High-quality educational content including video lectures, study materials, and assessments curated by experts.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <h3>EdTech Consulting</h3>
+        <p>Strategic consulting for institutions looking to digitize their operations and improve learning outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+
+      <div class="about-left reveal">
+        <div class="section-label">About Us</div>
+        <h2>GST-Registered<br>EdTech Company<br>in Ghaziabad, UP</h2>
+        <p>Saksham Edutech Private Limited is a legally registered Private Limited Company under the Goods and Services Tax framework, headquartered in Ghaziabad, Uttar Pradesh. We work at the intersection of education and technology to make quality learning accessible and impactful.</p>
+        <ul class="check-list">
+          <li>Registered Private Limited Company</li>
+          <li>GSTIN: 09ABQCS3439K1ZM (Regular)</li>
+          <li>Registered under Uttar Pradesh jurisdiction</li>
+          <li>Jurisdiction: Ghaziabad Sector-7</li>
+          <li>Approved by: Assistant Commissioner, Anil Kumar Jain</li>
+          <li>GST Valid from: 15 July 2025 (No expiry)</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <div class="biz-card">
+          <div class="biz-card-title">Business Details</div>
+          <div class="biz-row">
+            <div class="biz-key">Legal Name</div>
+            <div class="biz-val">Saksham Edutech Private Limited</div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">GSTIN</div>
+            <div class="biz-val">09ABQCS3439K1ZM</div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">Constitution</div>
+            <div class="biz-val"><span class="biz-badge">Private Limited Company</span></div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">Registration Type</div>
+            <div class="biz-val">Regular</div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">GST Valid From</div>
+            <div class="biz-val">15 July 2025</div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">State</div>
+            <div class="biz-val">Uttar Pradesh</div>
+          </div>
+          <div class="biz-row">
+            <div class="biz-key">Location</div>
+            <div class="biz-val">Ghaziabad — 201015</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GST DETAILS -->
+  <section id="gst">
+    <div class="section-label">Compliance</div>
+    <h2 class="section-title">GST Registration Details</h2>
+    <p class="section-sub">Our official GST certificate details as registered with the Government of India.</p>
+
+    <div class="gst-card reveal">
+      <h4>Form GST REG-06 — Registration Certificate</h4>
+      <div class="gst-row">
+        <span class="gst-key">Registration Number</span>
+        <span class="gst-val"><span class="gst-num">09ABQCS3439K1ZM</span></span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Legal Name</span>
+        <span class="gst-val">Saksham Edutech Private Limited</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Constitution</span>
+        <span class="gst-val">Private Limited Company</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Type of Registration</span>
+        <span class="gst-val">Regular</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Principal Address</span>
+        <span class="gst-val">E3/310, Dasana, Akash Nagar, Ghaziabad, Uttar Pradesh — 201015</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Validity Period</span>
+        <span class="gst-val">From 15/07/2025 — Not Applicable (Perpetual)</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Approving Authority</span>
+        <span class="gst-val">Anil Kumar Jain, Assistant Commissioner, Ghaziabad Sector-7</span>
+      </div>
+      <div class="gst-row">
+        <span class="gst-key">Date of Issue</span>
+        <span class="gst-val">15 July 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DIRECTORS -->
+  <section id="directors">
+    <div class="section-label">Leadership</div>
+    <h2 class="section-title">Our Directors</h2>
+    <p class="section-sub">The key managerial persons driving Saksham Edutech's vision and growth.</p>
+
+    <div class="directors-grid">
+      <div class="director-card reveal">
+        <div class="director-avatar">PC</div>
+        <div>
+          <div class="director-name">Preeti Chauhan</div>
+          <div class="director-role">Director</div>
+          <div class="director-state">📍 Uttar Pradesh</div>
+        </div>
+      </div>
+      <div class="director-card reveal">
+        <div class="director-avatar">SC</div>
+        <div>
+          <div class="director-name">Sachin Chauhan</div>
+          <div class="director-role">Director</div>
+          <div class="director-state">📍 Delhi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="contact-lead">Ready to transform education with technology? Let's connect and build something great together.</p>
+
+    <div class="contact-items">
+      <div class="contact-item reveal">
+        <div class="contact-icon-wrap">📍</div>
+        <div>
+          <div class="contact-item-label">Registered Address</div>
+          <div class="contact-item-val">
+            E3/310, Dasana, Akash Nagar,<br>
+            Near Holi Sprit Public School,<br>
+            Ghaziabad, Uttar Pradesh — 201015
+          </div>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon-wrap">🏢</div>
+        <div>
+          <div class="contact-item-label">Company Type</div>
+          <div class="contact-item-val">Private Limited Company · GST Regular</div>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon-wrap">📋</div>
+        <div>
+          <div class="contact-item-label">GSTIN</div>
+          <div class="contact-item-val">09ABQCS3439K1ZM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-brand-name">Saksham Edutech Pvt. Ltd.</div>
+        <p>GST-registered Education Technology company based in Ghaziabad, Uttar Pradesh. Empowering learners through innovation and technology.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gst">GST Details</a></li>
+          <li><a href="#directors">Directors</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Business Info</h5>
+        <div class="footer-contact-list">
+          <p>GSTIN: 09ABQCS3439K1ZM</p>
+          <p>E3/310, Dasana, Akash Nagar</p>
+          <p>Ghaziabad, Uttar Pradesh — 201015</p>
+          <p>Constitution: Private Limited</p>
+          <p>GST Since: 15 July 2025</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Saksham Edutech Private Limited. All rights reserved. | GSTIN: 09ABQCS3439K1ZM</p>
+      <ul class="footer-bottom-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
+</html>
